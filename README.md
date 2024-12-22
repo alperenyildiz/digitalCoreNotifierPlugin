@@ -238,13 +238,5 @@ flowchart TD
 ```
 
 ## 🤝 İletişim
-
-Digital Core Squad -  digital.core@ing.com.tr
-
-Proje Linki: [https://github.com](https://github.com/)
-
----
-
-<div align="center">
-by Digital Core Squad
-</div>
+- LinkedIn: https://www.linkedin.com/in/alperen-yildiz/
+- GitHub: https://github.com/alperenyildiz
