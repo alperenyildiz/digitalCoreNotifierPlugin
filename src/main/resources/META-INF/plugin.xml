@@ -1,0 +1,49 @@
+<idea-plugin>
+    <!-- Plugin'in temel bilgileri -->
+    <id>com.ing.digitalcorenotifier</id>  <!--Plugin'in benzersiz tanımlayıcısı-->
+    <name>Digital Core Notifier</name> <!-- Ziyaretçilerin göreceği isim -->
+    <vendor email="digital.core@ing.com.tr" url="http://www.digitalcore.com.tr">Digital Core</vendor> <!-- Geliştirici bilgileri -->
+
+    <!-- Plugin açıklaması - IDE'nin plugin marketinde görünür -->
+    <description><![CDATA[
+        Digital Core Notifier provides periodic tips and tricks about Java development and best practices.
+        Features:
+        - Periodic notifications with development tips
+        - Customizable notification intervals
+        - Like/Dislike feedback system
+        - Auto-start option
+    ]]></description>
+
+    <!-- Plugin'in bağımlılıkları -->
+    <depends>com.intellij.modules.platform</depends> <!--IntelliJ platform API'sine bağımlılık-->
+    <depends>com.intellij.modules.java</depends> <!--Java desteği için bağımlılık-->
+
+    <!-- Plugin'in extension'ları -->
+    <extensions defaultExtensionNs="com.intellij">
+        <!-- Bildirim grubu tanımı -->
+        <notificationGroup id="DigitalCoreNotifier" displayType="BALLOON"/> <!--id: Bildirim grubunun benzersiz adı,displayType: Bildirimin nasıl gösterileceği (BALLOON: sağ alt köşede popup)-->
+
+        <!-- Servis tanımlamaları (Application seviyesinde servis (tüm projeler için tek instance) -->
+        <applicationService
+                serviceInterface="com.ing.digitalcorenotifier.service.TipService"
+                serviceImplementation="com.ing.digitalcorenotifier.service.TipServiceImpl"/>
+
+        <applicationService
+                serviceImplementation="com.ing.digitalcorenotifier.service.settings.TipSettings"/>
+
+        <!-- Ayarlar ekranı tanımı
+         parentId : Settings menüsünde nerede görüneceği bilgisi
+         instance : Ayarlar ekranını oluşturan sınıf
+         id : Benzersiz ID
+         displayName : Settings menüsünde görünecek isim-->
+        <applicationConfigurable
+                parentId="tools"
+                instance="com.ing.digitalcorenotifier.ui.TipSettingsConfigurable"
+                id="com.ing.digitalcorenotifier.settings"
+                displayName="Digital Core Notifier Settings"/>
+
+        <!-- Project Activity (Proje açıldığında çalışacak listener)-->
+        <postStartupActivity
+                implementation="com.ing.digitalcorenotifier.listener.ProjectOpenCloseListener"/>
+    </extensions>
+</idea-plugin>
