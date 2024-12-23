@@ -9,6 +9,7 @@
 [![IntelliJ IDEA](https://img.shields.io/badge/IntelliJ%20IDEA-2023.3+-orange.svg)]()
 
 *IntelliJ IDEA için geliştirilmiş, geliştiricilere periyodik olarak Java ve yazılım geliştirme ipuçları sunan akıllı bir asistan.*
+*Not: Bu bir demo çalışmadır.* 
 
 [🌟 Özellikler](#-özellikler)  • [📱 Kullanım](#-kullanım) • [🔧 Teknik Detaylar](#-teknik-detaylar) • [🚀 Gelecek Özellikler](#-gelecek-özellikler) • [🤝 İletişim](#-iletişim)
 
